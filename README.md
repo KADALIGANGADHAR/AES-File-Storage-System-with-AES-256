@@ -171,7 +171,8 @@ if __name__ == "__main__":
 
 ## 🔐 AES File Encryption and Decryption (Without & With  Password)
 
-### *🔐 Method 1: AES Without Password*
+### 🔐 *Method 1: AES Without Password*
+
 ### 🔒 Encrypt a File
 - **```python3 aes_secure_storage.py enc secret.txt```**
 <img width="1920" height="250" alt="image" src="https://github.com/user-attachments/assets/987277ad-8aba-46d3-81ef-b331fe21badf" />
@@ -180,6 +181,24 @@ if __name__ == "__main__":
 - **```python3 aes_secure_storage.py dec secret.txt.enc```**
 <img width="1920" height="292" alt="image" src="https://github.com/user-attachments/assets/e7b5df11-af0f-4d83-b0c1-efe34eb7551d" />
 
-### 🔐 Method 2: AES With Password
+### 🔐*Method 2: AES With Password*
+
+**1.Open the file:**
+- **```nano aes_secure_storage.py```**
+<img width="1254" height="130" alt="image" src="https://github.com/user-attachments/assets/73e3768a-5602-4333-ad97-e9389e1fa02e" />
+
+**2.Add this function to get AES key from password:**
+
+ - **``` def get_key_from_password():
+    password = getpass.getpass("🔑 Enter password: ")
+    return hashlib.sha256(password.encode()).digest()```**
+   
+#### *Paste this anywhere before main() or if __name__ == '__main__'::*
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/c1e0f610-42a4-4c2c-a229-c03b4dec25b1" />
+
+
+
+
+
 
 
