@@ -161,7 +161,7 @@ if __name__ == "__main__":
 ```
 
 -  *Paste this code inside the editor (nano), then press Ctrl + X, then Y, then Enter to save:*
--  
+  
 ### 🔹 Step 5: Create a Sample File to Test
 
 - **```echo "This is a secret message." > secret.txt```**
@@ -183,18 +183,18 @@ if __name__ == "__main__":
 
 ### 🔐*Method 2: AES With Password*
 
-**1.Open the file:**
+**1. Open the file:**
 - **```nano aes_secure_storage.py```**
 <img width="1254" height="130" alt="image" src="https://github.com/user-attachments/assets/73e3768a-5602-4333-ad97-e9389e1fa02e" />
 
-**2.Add this function to get AES key from password:**
+**2. Add this function to get AES key from password:**
 
  - **``` def get_key_from_password():
     password = getpass.getpass("🔑 Enter password: ")
-    return hashlib.sha256(password.encode()).digest()```**
-   
+    return hashlib.sha256(password.encode()).digest()
+     KEY = get_key_from_password()```**
+
 #### *Paste this anywhere before main() or if __name__ == '__main__'::*
-<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/c1e0f610-42a4-4c2c-a229-c03b4dec25b1" />
 
 
 
