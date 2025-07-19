@@ -28,10 +28,28 @@ To securely encrypt and decrypt files using **AES-256** with:
 
 ### 🔹 Step 1: Install Python Virtual Environment
 
-**```sudo apt update  && sudo apt upgrade```**
-
-**```sudo apt install python3-venv -y```**
+- **```sudo apt update  && sudo apt upgrade```**
+- **```sudo apt install python3-venv -y```**
 
 <img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/39a0ccb9-cdd1-4a26-a6d2-d35c54aacab3" />
 
 ### 🔹Step 2: Create Project Folder & Virtual Environment
+
+- **```mkdir ~/AES_File_Storage```**
+- **```cd ~/AES_File_Storage```**
+- **```python3 -m venv aesenv```**
+- **```source aesenv/bin/activate```**
+
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/5119a42b-ca6e-4195-ba2e-c6fb48e078c7" />
+
+### 🔹 Step 3: Install Required Python Library
+- **```pip install cryptography```**
+<img width="1920" height="678" alt="image" src="https://github.com/user-attachments/assets/2e1687e9-41af-4027-884f-bfe60da0b25f" />
+
+### 🔹 Step 4: Create Python File
+- **```touch aes_secure_storage.py```**
+- **```nano aes_secure_storage.py```**
+<img width="1920" height="243" alt="image" src="https://github.com/user-attachments/assets/e6b084ec-70fa-4b65-81cb-4330362e85d0" />
+
+
+
