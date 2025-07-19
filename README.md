@@ -190,12 +190,13 @@ if __name__ == "__main__":
 **2. Add this function to get AES key from password:**
 
  - **``` def get_key_from_password():
-    password = getpass.getpass("🔑 Enter password: ")
-    return hashlib.sha256(password.encode()).digest()
-     KEY = get_key_from_password()```**
+    password = getpass.getpass("🔑 Enter password: ").encode()
+    return hashlib.sha256(password).digest()
+   KEY = get_key_from_password()```**
 
 #### *Paste this anywhere before main() or if __name__ == '__main__'::*
-<img width="1920" height="892" alt="VirtualBox_kali_19_07_2025_18_05_44" src="https://github.com/user-attachments/assets/a254333a-37e6-4460-a153-e2f1c2300fa6" />
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/be8542a7-702e-4378-8710-32baefa11a1b" />
+
 
 **Save and exit (Ctrl + X, Y, Enter)**
 
