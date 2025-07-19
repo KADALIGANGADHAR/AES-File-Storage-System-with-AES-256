@@ -6,7 +6,7 @@ This project is a CLI-based encryption and decryption system using **AES-256 (CB
 
 ## 🎯 Objective
 
-To securely encrypt and decrypt files using **AES-256** with:
+To securely encrypt and decrypt files using **AES-256** with
 - Password-derived key
 - Random IV
 - Metadata storage (hash, time, filename)
