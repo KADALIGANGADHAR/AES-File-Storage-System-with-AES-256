@@ -215,7 +215,12 @@ if __name__ == "__main__":
 <img width="1920" height="242" alt="image" src="https://github.com/user-attachments/assets/d700ff67-32fd-4ebc-911a-4a744ebb04a4" />
 
 
-
+## 🔐 Security Highlights
+- AES-256 encryption in CBC mode
+- Password-based key (not hardcoded)
+- Random IV per encryption
+- SHA-256 hash verification before decryption
+- Metadata file stores filename, timestamp, hash
 
 
 
