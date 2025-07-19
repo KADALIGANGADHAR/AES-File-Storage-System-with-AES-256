@@ -195,6 +195,25 @@ if __name__ == "__main__":
      KEY = get_key_from_password()```**
 
 #### *Paste this anywhere before main() or if __name__ == '__main__'::*
+<img width="1920" height="892" alt="VirtualBox_kali_19_07_2025_18_05_44" src="https://github.com/user-attachments/assets/a254333a-37e6-4460-a153-e2f1c2300fa6" />
+
+**Save and exit (Ctrl + X, Y, Enter)**
+
+### 🔒 Encrypt a File
+ - **```python3 aes_secure_storage_password.py enc secret.txt```**
+   
+**🧾 You will be asked:**
+
+ - **```🔑 Enter password:```**
+   
+**The user is prompted to enter a password during both encryption and decryption. The password is used to derive a secure AES key.**
+
+<img width="1920" height="273" alt="image" src="https://github.com/user-attachments/assets/8d9505f1-7ede-45ae-ac47-30e65706bc52" />
+
+### 🔓 Decrypt a File
+- **```python3 aes_secure_storage.py dec secret.txt.enc```**
+<img width="1920" height="242" alt="image" src="https://github.com/user-attachments/assets/d700ff67-32fd-4ebc-911a-4a744ebb04a4" />
+
 
 
 
