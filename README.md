@@ -167,6 +167,11 @@ if __name__ == "__main__":
 - **```echo "This is a secret message." > secret.txt```**
 <img width="1657" height="172" alt="image" src="https://github.com/user-attachments/assets/f8f4efed-37af-4cf4-a2cf-313a27fd88bf" />
 
+
+
+## 🔐 AES File Encryption and Decryption (Without & With  Password)
+
+### *🔐 Method 1: AES Without Password*
 ### 🔒 Encrypt a File
 - **```python3 aes_secure_storage.py enc secret.txt```**
 <img width="1920" height="250" alt="image" src="https://github.com/user-attachments/assets/987277ad-8aba-46d3-81ef-b331fe21badf" />
@@ -175,5 +180,6 @@ if __name__ == "__main__":
 - **```python3 aes_secure_storage.py dec secret.txt.enc```**
 <img width="1920" height="292" alt="image" src="https://github.com/user-attachments/assets/e7b5df11-af0f-4d83-b0c1-efe34eb7551d" />
 
+### 🔐 Method 2: AES With Password
 
 
