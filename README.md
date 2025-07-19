@@ -50,6 +50,116 @@ To securely encrypt and decrypt files using **AES-256** with:
 - **```touch aes_secure_storage.py```**
 - **```nano aes_secure_storage.py```**
 <img width="1920" height="243" alt="image" src="https://github.com/user-attachments/assets/e6b084ec-70fa-4b65-81cb-4330362e85d0" />
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/a79f1631-0583-4fef-9fe8-f0bfeceb09c2" />
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/cdfcf8b9-e187-46c5-878e-fc3e13cd78f0" />
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/663e84b8-6ceb-40e8-9aba-30ee87e267e4" />
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/71e3438d-7481-4cdf-be5d-58408a296395" />
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/5b82b6d9-eb0d-4777-85e6-c2b9c963545e" />
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/9dce7bfd-b2a3-4762-a428-3699ca51b2ff" />
+<img width="1920" height="892" alt="image" src="https://github.com/user-attachments/assets/a1df0798-c84b-492b-bfc8-a8549ac0934d" />
 
+bash
+```**
+import os
+import json
+import base64
+import hashlib
+from datetime import datetime
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives import padding
+from cryptography.hazmat.backends import default_backend
+import sys
+
+PASSWORD = b'my_secure_password_123'
+KEY = hashlib.sha256(PASSWORD).digest()  # 256-bit key
+
+def pad(data):
+    padder = padding.PKCS7(128).padder()
+    return padder.update(data) + padder.finalize()
+
+def unpad(data):
+    unpadder = padding.PKCS7(128).unpadder()
+    return unpadder.update(data) + unpadder.finalize()
+
+def encrypt_file(file_path):
+    with open(file_path, 'rb') as f:
+        data = f.read()
+
+    original_hash = hashlib.sha256(data).hexdigest()
+    iv = os.urandom(16)
+    cipher = Cipher(algorithms.AES(KEY), modes.CBC(iv), backend=default_backend())
+    encryptor = cipher.encryptor()
+    encrypted_data = encryptor.update(pad(data)) + encryptor.finalize()
+
+    encrypted_file = file_path + ".enc"
+    with open(encrypted_file, 'wb') as f:
+        f.write(iv + encrypted_data)
+
+    metadata = {
+        "original_name": os.path.basename(file_path),
+        "encrypted_name": os.path.basename(encrypted_file),
+        "timestamp": datetime.now().isoformat(),
+        "sha256": original_hash
+    }
+
+    with open(encrypted_file + ".meta.json", 'w') as meta_file:
+        json.dump(metadata, meta_file, indent=4)
+
+    print(f"✅ Encrypted and saved as: {encrypted_file}")
+    print(f"📄 Metadata saved as: {encrypted_file}.meta.json")
+
+def decrypt_file(enc_path):
+    with open(enc_path, 'rb') as f:
+        content = f.read()
+    iv = content[:16]
+    encrypted_data = content[16:]
+
+    cipher = Cipher(algorithms.AES(KEY), modes.CBC(iv), backend=default_backend())
+    decryptor = cipher.decryptor()
+    decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()
+    decrypted_data = unpad(decrypted_data)
+
+    meta_path = enc_path + ".meta.json"
+    with open(meta_path, 'r') as meta_file:
+        metadata = json.load(meta_file)
+
+    hash_check = hashlib.sha256(decrypted_data).hexdigest()
+
+    if hash_check != metadata['sha256']:
+        print("❌ File hash mismatch. File may be tampered.")
+        return
+
+    output_file = "decrypted_" + metadata['original_name']
+    with open(output_file, 'wb') as f:
+        f.write(decrypted_data)
+
+    print(f"✅ File decrypted and saved as: {output_file}")
+
+def main():
+    if len(sys.argv) != 3:
+        print("Usage:")
+        print("  Encrypt: python3 aes_secure_storage.py enc <file_path>")
+        print("  Decrypt: python3 aes_secure_storage.py dec <encrypted_file>")
+        return
+
+    command = sys.argv[1]
+    path = sys.argv[2]
+
+    if not os.path.exists(path):
+        print("❌ File not found.")
+        return
+
+    if command == "enc":
+        encrypt_file(path)
+    elif command == "dec":
+        decrypt_file(path)
+    else:
+        print("❌ Invalid command. Use 'enc' or 'dec'.")
+
+if __name__ == "__main__":
+    main()
+```
+
+-  *Paste this code inside the editor (nano), then press Ctrl + X, then Y, then Enter to save:*
 
 
